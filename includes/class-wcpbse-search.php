@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class WCPBSE_Search {
+final class WCPBSE_Search {
 
 	private const RESULT_LIMIT = 8;
 	private const FETCH_LIMIT  = 40;
@@ -42,7 +42,8 @@ class WCPBSE_Search {
 
 			$result[] = [
 				'id'    => (int) $row->product_id,
-				'title' => $row->title,
+				// JS inserts via .text(); keep plain text for JSON, not esc_html.
+				'title' => sanitize_text_field( $row->title ),
 				'url'   => get_permalink( (int) $row->product_id ),
 				'image' => $image ? $image : '',
 			];
@@ -58,7 +59,7 @@ class WCPBSE_Search {
 	public static function fetch( $query ): array {
 		global $wpdb;
 
-		$table = WCPBSE_Database::tableConfig()['name'];
+		$table = WCPBSE_Database::table_config()['name'];
 		$like  = '%' . $wpdb->esc_like( $query ) . '%';
 
 		$rows = $wpdb->get_results(

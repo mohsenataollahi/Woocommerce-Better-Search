@@ -2,10 +2,9 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class WCPBSE_Database {
+final class WCPBSE_Database {
 
-	public static function tableConfig(): array {
-
+	public static function table_config(): array {
 		global $wpdb;
 
 		return [
@@ -14,11 +13,10 @@ class WCPBSE_Database {
 		];
 	}
 
-	public static function createTable() {
-
+	public static function create_table(): void {
 		global $wpdb;
 
-		$config = self::tableConfig();
+		$config = self::table_config();
 
 		require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 
@@ -36,5 +34,4 @@ class WCPBSE_Database {
 		) {$config['charset']}";
 		dbDelta( $sql );
 	}
-
 }

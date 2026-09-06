@@ -1,0 +1,34 @@
+---
+description: Load simple/clean/functional/modular plus WordPress skills whenever writing or changing code.
+alwaysApply: true
+---
+
+# Code quality skills (always)
+
+When **writing, changing, reviewing, or refactoring code**, read and follow these skills **before** producing code:
+
+1. `.cursor/skills/simple-code/SKILL.md`
+2. `.cursor/skills/clean-code/SKILL.md`
+3. `.cursor/skills/functional-code/SKILL.md`
+4. `.cursor/skills/modular-code/SKILL.md`
+
+This repo is a WordPress plugin. Also read:
+
+5. `.cursor/skills/wordpress/SKILL.md`
+6. `.cursor/skills/wordpress-best-practices/SKILL.md`
+7. `.cursor/skills/elementor/SKILL.md` — when the change touches Query IDs, Loop Grid / Posts queries, or `elementor/query/*`
+
+Do this even if the user does not name them. Open rule files under `wordpress-best-practices/rules/` only for the file type you are touching.
+
+Skip only for pure docs or git with no code change.
+
+## Conflict order
+
+1. Safety, correctness, explicit user request
+2. Repo conventions and `wordpress` / `wordpress-best-practices` / `elementor`
+3. **simple-code** (no extra layers/files/abstractions)
+4. **clean-code** (names, small functions, no magic)
+5. **functional-code** (pure core, effects at edge — no academic FP)
+6. **modular-code** (feature-first, no new architecture)
+
+If two skills disagree, the higher item wins. Never add ceremony that `simple-code` forbids. Never skip sanitize/escape/prepare to stay "simple".

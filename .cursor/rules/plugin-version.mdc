@@ -1,0 +1,45 @@
+---
+description: Bump ActualizedCore plugin version automatically from the change type. Keep header and README in sync.
+alwaysApply: true
+---
+
+# Plugin version (auto bump)
+
+هر تسک که **کد پلاگین** را عوض می‌کند: خودت ورژن را بزن. از کاربر نپرس. جداگانه کامیت نکن — همان تسک.
+
+## Source of truth
+
+1. `actCore.php` header: `Version:`
+2. `README.md`: `Plugin: <Plugin Name> X.Y.Z` (same as folder / header `Plugin Name`)
+
+If `ACT_VERSION` (or enqueue `$ver`) exists, keep it equal to the header. Do not add a version constant just for this rule.
+
+SemVer `MAJOR.MINOR.PATCH`. Read the current header first. Bump **once per task** (highest rung that applies). Never bump twice in the same task.
+
+## When to bump
+
+| Change | Bump |
+| --- | --- |
+| Break public contract: remove/rename shortcode, CPT, Elementor query ID, post meta key, cron hook, or stored data shape | **MAJOR** |
+| New user-facing capability: shortcode, query ID, CPT, import source, option, public markup/behavior | **MINOR** |
+| Fix, refactor, performance, internal logic, asset tweak — same public contract | **PATCH** |
+
+`1.0.0` + bugfix → `1.0.1`. `1.0.1` + new shortcode → `1.1.0`. `1.1.0` + rename CPT → `2.0.0`.
+
+## Do not bump
+
+- Only `.cursor/` (rules, skills)
+- Only comments, whitespace, or docs that do not change shipped plugin behavior
+- Git-only / branch / MR with no plugin-file diff
+
+Code + docs in one task: bump for the code.
+
+## Example
+
+```php
+* Version:           1.0.1
+```
+
+```markdown
+- Plugin: `Actualized Core for Rancho Chico` 1.0.1
+```

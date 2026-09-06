@@ -1,0 +1,41 @@
+---
+description: Every task uses a new branch off master; finish with commit, push, and a manual GitLab new-MR link into master.
+alwaysApply: true
+---
+
+# Task branch + MR
+
+هر تسک جدید = یک برنچ جدید از `master`. مستقیم روی `master` کار نکن، کامیت نکن، پوش نکن — مگر کاربر صریح بگوید روی `master`.
+
+## Start of a task
+
+1. `git fetch origin` then `git checkout master` and `git pull` if the working tree is clean.
+2. Create a new branch from `master`: `feat/…`, `fix/…`, `chore/…`, or `docs/…` matching the task.
+3. Do all work on that branch.
+
+Do not reuse a leftover feature branch for an unrelated task.
+
+## End of a task
+
+When the user says the work is done, or asks to commit / push / MR, or the task is complete:
+
+1. Commit (only if there are changes; follow conventional commits).
+2. `git push -u origin HEAD`
+3. Give a **new-MR URL** targeting `master`. User opens it and creates the MR by hand.
+4. Do not create the MR via `glab`, GitLab API, MCP, or `gh`.
+
+Do not merge unless the user asks.
+
+## GitLab new-MR link
+
+Remote: `proptrader/actualized-core-for-rancho-chico`.
+
+```
+https://gitlab.com/proptrader/actualized-core-for-rancho-chico/-/merge_requests/new?merge_request%5Bsource_branch%5D=<branch>&merge_request%5Btarget_branch%5D=master
+```
+
+URL-encode the source branch (`/` → `%2F`). Put the full URL in the reply so the user can click it.
+
+## Already on master
+
+If work started on `master` by mistake and is uncommitted: move it to a new branch (`git checkout -b …`) before commit. Do not push those commits to `master`.

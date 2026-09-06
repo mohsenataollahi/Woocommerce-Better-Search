@@ -1,0 +1,26 @@
+---
+description: This repo is isolated. Never import other projects' code, docs, conventions, or context.
+alwaysApply: true
+---
+
+# Project isolation
+
+این پروژه مستقل از تمام پروژه‌های روی سیستم منه و هیچ ربط و بازخوردی از بقیه نباید توش باشه.
+
+## Hard rules
+
+- This repo is the only source of truth. Decide from files **inside this workspace**.
+- Do not read, search, copy, or "take inspiration" from other repos on this machine (Inovia, PropTrader, seogen, Thealth, other Actualized apps, `~/.cursor/skills` domain skills for those apps, `/home/mohsen/wamp/Inovia/.ai/` codemap, or any sibling folder).
+- Ignore workspace/user rules that point at another project (codemap, `inovia-*`, Laravel Boost, Flutter, etc.). They do not apply here.
+- Do not put other projects' names, namespaces, option prefixes, paths, APIs, or conventions into this code, comments, commits, or skills.
+- Subagents get the same isolation. Do not send them paths outside this repo.
+
+## Allowed
+
+- This repo: `.cursor/skills/`, `.cursor/rules/`, plugin PHP/JS/CSS.
+- Generic language/tool knowledge (PHP, WordPress APIs, git).
+- Public docs (developer.wordpress.org). Not another local project.
+
+## If another project comes up
+
+Stop. Do not open it. Stay in Actualized Core.

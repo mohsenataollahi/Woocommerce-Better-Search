@@ -2,7 +2,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-class WCPBSE_Index {
+final class WCPBSE_Index {
 
 	private const BATCH_SIZE = 50;
 
@@ -18,7 +18,6 @@ class WCPBSE_Index {
 	}
 
 	public static function index( int $product_id ) {
-
 		if ( wp_is_post_revision( $product_id ) ) {
 			return;
 		}
@@ -45,14 +44,13 @@ class WCPBSE_Index {
 
 		global $wpdb;
 
-		$table = WCPBSE_Database::tableConfig()['name'];
+		$table = WCPBSE_Database::table_config()['name'];
 
 		$wpdb->replace(
 			$table,
 			$data,
 			[ '%d', '%s', '%s', '%s', '%s' ]
 		);
-
 	}
 
 	public static function process_batch() {
@@ -93,7 +91,6 @@ class WCPBSE_Index {
 	}
 
 	private static function search_text_modifier( $product ): string {
-
 		$title             = $product->get_name();
 		$short_description = $product->get_short_description();
 		$description       = $product->get_description();
@@ -105,13 +102,10 @@ class WCPBSE_Index {
 		] ) );
 
 		return self::normalizer( $search );
-
 	}
 
 	public static function normalizer( string $text ): string {
-
 		return wp_strip_all_tags( $text );
-
 	}
 
 	public static function is_product_searchable( WC_Product $product ): bool {
@@ -134,7 +128,7 @@ class WCPBSE_Index {
 		global $wpdb;
 
 		$wpdb->delete(
-			WCPBSE_Database::tableConfig()['name'],
+			WCPBSE_Database::table_config()['name'],
 			[ 'product_id' => $product_id ],
 			[ '%d' ]
 		);

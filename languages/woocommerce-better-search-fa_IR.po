@@ -1,0 +1,40 @@
+# Copyright (C) 2026 Mohsen Ataollahi
+# This file is distributed under the GPL v2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Woocommerce Better Search 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/mohsenataollahi/Woocommerce-Better-Search\n"
+"POT-Creation-Date: 2026-09-06 12:00+0000\n"
+"PO-Revision-Date: 2026-09-06 12:40+0000\n"
+"Last-Translator: Mohsen Ataollahi\n"
+"Language-Team: Persian\n"
+"Language: fa_IR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Domain: woocommerce-better-search\n"
+
+#. Plugin Name of the plugin
+msgid "Woocommerce Better Search"
+msgstr "جستجوی بهتر ووکامرس"
+
+#. Description of the plugin
+msgid "Better WooCommerce product AJAX search with a dedicated search index."
+msgstr "جستجوی ایجکس بهتر محصولات ووکامرس با ایندکس اختصاصی."
+
+#: includes/class-wcpbse.php
+msgid "Every hour"
+msgstr "هر ساعت"
+
+#: includes/class-wcpbse.php
+msgid "WooCommerce Better Search requires WooCommerce to be installed and active."
+msgstr "پلاگین WooCommerce Better Search به نصب و فعال بودن ووکامرس نیاز دارد."
+
+#: public/partials/wcpbse-search.php
+msgid "Search products…"
+msgstr "جستجوی محصولات…"
+
+#: public/class-wcpbse-public.php
+msgid "No results found."
+msgstr "نتیجه‌ای یافت نشد."

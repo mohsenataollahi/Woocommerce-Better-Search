@@ -40,7 +40,10 @@ jQuery(document).ready(function ($) {
 			clearResults();
 
 			if (!items || !items.length) {
-				$resultBox.text('نتیجه‌ای یافت نشد / No results found');
+				var noResults = (typeof WCPBSC !== 'undefined' && WCPBSC.i18n && WCPBSC.i18n.noResults)
+					? WCPBSC.i18n.noResults
+					: 'No results found.';
+				$resultBox.text(noResults);
 				return;
 			}
 
